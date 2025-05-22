@@ -35,3 +35,25 @@ print(f"Температура: {data['main']['temp']} градусов цель
 
 ![image](https://github.com/user-attachments/assets/f0c88300-561e-417c-96e6-a9eb9322b5d1)
 
+Интереса ради можно ещё рассмотреть погоду в других городах и узнать скорость ветра. Вот обновлённый код, который будет искать данные по Краснодару: 
+```py
+import requests
+
+api_key = "b9e91632854834d94ac5fcb020abbd48"
+city = 'Краснодар'
+url = f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric&lang=ru'
+
+response = requests.get(url)
+data = response.json()
+
+print(f"Погода в {data['name']}: {data['weather'][0]['description']}")
+print(f"Температура: {data['main']['temp']} градусов цельсия")
+print(f"Скорость ветра: {data['wind']['speed']} метров в секунду")
+```
+
+В идеале вывод должен будет выглядеть подобным образом: 
+![image](https://github.com/user-attachments/assets/124b32ab-49b1-4ba8-b85a-2e8070adb40f)
+
+## Заключение
+
+Я познакомился с API. Что то уже есть, есть над чем поработать
