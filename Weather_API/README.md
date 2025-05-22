@@ -30,3 +30,8 @@ data = response.json()  # Создаём новую переменную, ссы
 print(f"Погода в {data['name']}: {data['weather'][0]['description']}")
 print(f"Температура: {data['main']['temp']} градусов цельсия")
 ```
+
+Если нет косяков в синтаксисе, то ответ будет выглядеть подобным образом: 
+
+![image](https://github.com/user-attachments/assets/f0c88300-561e-417c-96e6-a9eb9322b5d1)
+
