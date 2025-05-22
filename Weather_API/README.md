@@ -8,3 +8,7 @@
 Как ламер обыкновенный, который мнит из себя Стива Джобса я сейчас замутил запрос к `OpenWeatherMap API`, там я через код запрошу данные о погоде в Питере.
 ### Способ 1: Сделаю запрос напрямую через браузер, но не совсем
 Для этого нужно ввести: ```https://api.openweathermap.org/data/2.5/weather?q=Санкт-Петербург&appid=ТУТ_БУДЕТ_КЛЮЧ&units=metric&lang=ru```
+В итоге, если не выдалась ошибка 401 или 404, то будет что то вроде такого:
+```json
+{"coord":{"lon":30.2642,"lat":59.8944},"weather":[{"id":803,"main":"Clouds","description":"облачно с прояснениями","icon":"04d"}],"base":"stations","main":{"temp":12.08,"feels_like":11.33,"temp_min":12.08,"temp_max":12.08,"pressure":1008,"humidity":76,"sea_level":1008,"grnd_level":1006},"visibility":10000,"wind":{"speed":7,"deg":130},"clouds":{"all":75},"dt":1747910339,"sys":{"type":1,"id":8926,"country":"RU","sunrise":1747876005,"sunset":1747939486},"timezone":10800,"id":498817,"name":"Санкт-Петербург","cod":200}
+```
