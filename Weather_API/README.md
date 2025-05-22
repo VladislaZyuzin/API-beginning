@@ -12,3 +12,21 @@
 ```json
 {"coord":{"lon":30.2642,"lat":59.8944},"weather":[{"id":803,"main":"Clouds","description":"облачно с прояснениями","icon":"04d"}],"base":"stations","main":{"temp":12.08,"feels_like":11.33,"temp_min":12.08,"temp_max":12.08,"pressure":1008,"humidity":76,"sea_level":1008,"grnd_level":1006},"visibility":10000,"wind":{"speed":7,"deg":130},"clouds":{"all":75},"dt":1747910339,"sys":{"type":1,"id":8926,"country":"RU","sunrise":1747876005,"sunset":1747939486},"timezone":10800,"id":498817,"name":"Санкт-Петербург","cod":200}
 ```
+Много чего интуитивно понятно, например, на момент дня 22.05.2025 видно, что погода в питере порядка 12 градусов цельсия и т.п...
+
+### Способ 2. Идём душить питона
+
+Для того, чтобы заработало всё в виде, который более подходит нам - то напишу код на Python для реализациии задачи:
+```py
+import requests
+
+api_key = "b9e91632854834d94ac5fcb020abbd48"
+city = 'Санкт-Петербург'
+url = f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric&lang=ru'
+
+response = requests.get(url)  #Тут основная часть API начинается, тут наша программа делает запрос к сайту погоды для получения точной инфы
+data = response.json()  # Создаём новую переменную, ссылаясь на библиотеку 
+
+print(f"Погода в {data['name']}: {data['weather'][0]['description']}")
+print(f"Температура: {data['main']['temp']} градусов цельсия")
+```
