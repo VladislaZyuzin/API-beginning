@@ -91,7 +91,8 @@ def translation(currency_code):
                 common_ammount = money / abroad_curr
 
                 print(f"Стоимость 1 {currency_code} составляет: {data['rates']['RUB']} рублей")
-                print(f"Если вы возбмёте с собой {money} рублей, то вы сможете их поменять на {round(common_ammount, 2)} {currency_code}")    # {round(common_ammount, 2)}  - выводит значение с 2-мя цифрами после запятой
+                print(f"Если вы возбмёте с собой {money} рублей, то вы сможете их поменять на {round(common_ammount, 2)} {currency_code}")
+# {round(common_ammount, 2)}  - выводит значение с 2-мя цифрами после запятой
 
                 return True
 
