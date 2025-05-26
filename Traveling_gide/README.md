@@ -56,3 +56,53 @@ def get_country():  # Метод, в котором мы через API обра
 
 Разбор команды `currency_code = list(data[0]['currencies'].keys())[0]`:
 ![image](https://github.com/user-attachments/assets/789355a0-aa61-49c2-952a-6645f7a8d623)
+
+Как видно по коду, вывод представляет собой:
+1. Столицу страны.
+2. Код валюты.
+
+### Пересчёт валюты в рубли.
+
+Далее по ТЗ необходимо было получить данные о стоимости валюты в выбранной стране к рублю, для этого я воспользовался API: `api.exchangerate-api.com`. Она показывает актуальный курс валют. 
+
+Мой код выглядит следующим образом:
+```py
+def translation(currency_code):
+
+    print("===Программа для рассчёта валюты===\n")
+
+    while True:
+
+        decision = input(f"Напишите 'да', если хотети продолжить или 'нет' если не хотите: \n")
+
+        if decision.lower() == 'нет':
+            print("Выход их программы...")
+            return None, None
+
+        elif decision.lower() == 'да':
+
+            try:
+                url = f"https://api.exchangerate-api.com/v4/latest/{currency_code}"
+                response = requests.get(url)
+                data = response.json()
+                money = float(input(f"Введите количество рублей, которые вы возьмёте в поездку: "))
+
+                abroad_curr = float(data['rates']['RUB'])    # Из интересного, воны КНДР не конвертируются в рубли :)
+                common_ammount = money / abroad_curr
+
+                print(f"Стоимость 1 {currency_code} составляет: {data['rates']['RUB']} рублей")
+                print(f"Если вы возбмёте с собой {money} рублей, то вы сможете их поменять на {round(common_ammount, 2)} {currency_code}")    # {round(common_ammount, 2)}  - выводит значение с 2-мя цифрами после запятой
+
+                return True
+
+            except Exception as e:
+                print(f"Неизвестная ошибка: {e}. Попробуйте ещё раз.")
+
+        else:
+            print("Неправильный ввод, попробуйте ещё раз")
+
+```
+
+Как видно в коде, при неправильном рассчёте у нас возникает бесконечный цикл, который можно остановить либо при правильном вводе данных или при вводе "нет".
+
+### Поиск прогноза погоды
