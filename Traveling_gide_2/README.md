@@ -195,7 +195,7 @@ def save_report(country, capital, exchange_data, weather_data):
 
 ## Заключение
 
-Я уже что то научился делать, так что всё ок, мб, кому то это будет полезным. Кстати, в общем коде, который находится [тут](https://github.com/VladislaZyuzin/API-beginning/blob/main/Traveling_gide_2/main.py) представлены некоторые другие изменения, о которых не было обговорено из-за интуитивной понятности. Если интересует полуенный пример JSON файла, то он [тут](https://github.com/VladislaZyuzin/API-beginning/blob/main/Traveling_gide_2/Japan_travel_report.json)
+Я уже что то научился делать, так что всё ок, мб, кому то это будет полезным. Кстати, в общем коде, который находится [тут](https://github.com/VladislaZyuzin/API-beginning/blob/main/Traveling_gide_2/main.py) представлены некоторые другие изменения, о которых не было обговорено из-за интуитивной понятности. Если интересует полуенный пример JSON файла, то он [тут](https://github.com/VladislaZyuzin/API-beginning/blob/main/Traveling_gide_2/Japan_travel_report.json).
 
 
 
