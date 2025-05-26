@@ -22,9 +22,9 @@ print("=====Туристическая справка=====\n")
 
 def get_country():  # Метод, в котором мы через API обращаемся за инфой по странам
     while True:
-        country = input("Введите страну на английском (или 'exit' для выхода): ").strip()
+        country = input("Введите страну на английском (или 'exit' для выхода): ").strip()    # .strip() - удаление лишних пробелов
 
-        if country.lower() == 'exit':
+        if country.lower() == 'exit':    # .lower() - защита от различных описаний 'exit'. Можно хоть капсом писать
             print("Выход из программы... ")
             return None, None
 
@@ -53,3 +53,6 @@ def get_country():  # Метод, в котором мы через API обра
             print(f"Неизвестная ошибка: {e}. Попробуйте ещё раз.")
 
 ```
+
+Разбор команды `currency_code = list(data[0]['currencies'].keys())[0]`:
+![image](https://github.com/user-attachments/assets/789355a0-aa61-49c2-952a-6645f7a8d623)
